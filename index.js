@@ -7,11 +7,20 @@ app.use(express.json());
 
 app.get("/visit", (req, res) => {
     const id = req.query.id;
+    var options = {
+        root: __dirname,
+        dotfiles: 'deny',
+        headers: {
+          'x-timestamp': Date.now(),
+          'x-sent': true
+        }
+      }
+
     if(id) {
         console.log("[visited] ", id);
-        res.status(200).json({"status": "read", "_id": id});
+        res.sendFile('test_image.png', options);
     } else {
-        res.status(400).json({"status": "invalid_id tried to read"});
+        res.sendFile('test_image.png', options);
     }
 });
 
