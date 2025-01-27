@@ -1,9 +1,17 @@
-const express = require("express");
+import dotenv from "dotenv";
+import express from "express";
+
+import UniqueTranferIdentityGenerator from "./classes/helpers/UniqueTransferIdentityGenerator.js";
+
+dotenv.config();
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
+
 let counter = 0;
 app.use(express.json());
+
+
 
 app.get("/visit", (req, res) => {
     const id = req.query.id;
@@ -24,6 +32,7 @@ app.get("/visit", (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT,async () => {
+    console.log(await UniqueTranferIdentityGenerator("sample@email.com", new Date()));
     console.log("Running on port ", PORT);
 });
