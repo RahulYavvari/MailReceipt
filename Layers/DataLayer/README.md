@@ -6,3 +6,6 @@ To reduce the network call delay, the data layer will be another process spawned
 
 Also, since the object oriented programming is a good way to deal with a program with many entities with values and functionalities, using an database ORM (Object Relational Mapping) in the data layer will be very helpful when dealing with the operations on the data.
 
+### Fun Fact
+
+To know how may lines of JavaScript is there in your project, run `git ls-files | grep '\.js' | xargs wc -l`
