@@ -7,6 +7,7 @@ import { db } from "./firebase.js";
 import healthRoute from "./routes/healthRoute.js";
 import senderRoute from "./routes/senderRoute.js";
 import receiverRoute from "./routes/receiverRoute.js";
+import userRoute from "./routes/userRoute.js";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/", healthRoute);
 app.use("/sender/", senderRoute);
 app.use("/receiver/", receiverRoute);
+app.use("/user/", userRoute);
 
 app.use((req, res, next) => {
     res.status(404).json({
